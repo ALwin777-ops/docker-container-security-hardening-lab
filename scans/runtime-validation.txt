@@ -1,0 +1,12 @@
+﻿Docker Container Security Hardening Lab
+Runtime Validation
+==============================
+
+Insecure container identity:
+uid=0(root) gid=0(root) groups=0(root),0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
+
+Hardened container identity:
+uid=101(nginx) gid=101(nginx) groups=101(nginx)
+
+Hardened application HTTP status:
+200

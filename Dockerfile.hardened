@@ -1,0 +1,17 @@
+
+FROM nginx:1.29-alpine
+
+RUN apk update && apk upgrade \
+    && mkdir -p /tmp/nginx/client_temp /tmp/nginx/proxy_temp /tmp/nginx/fastcgi_temp /tmp/nginx/uwsgi_temp /tmp/nginx/scgi_temp \
+    && chown -R nginx:nginx /tmp/nginx
+
+COPY app/index.html /usr/share/nginx/html/index.html
+COPY nginx.conf /etc/nginx/nginx.conf
+
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 CMD wget -q -O /dev/null http://127.0.0.1:8080/ || exit 1
+
+EXPOSE 8080
+
+USER nginx
+
+CMD ["nginx", "-g", "daemon off;"]
