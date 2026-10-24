@@ -28,7 +28,7 @@ Trivy detected two Dockerfile misconfigurations:
 
 | ID | Severity | Finding |
 |---|---|---|
-| DS-0002 | HIGH | No non-root `USER` instruction |
+| DS-0002 | HIGH | No non-root `USER` instructions |
 | DS-0026 | LOW | No `HEALTHCHECK` instructions |
 
 Runtime inspection confirmed that the baseline container ran as UID 0 (`root`).
