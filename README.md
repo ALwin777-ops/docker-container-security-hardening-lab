@@ -147,3 +147,7 @@ This lab demonstrates practical container security assessment, Dockerfile harden
 ## Why Non-Root Containers Matter
 
 Running an application as a non-root user follows the principle of least privilege. If an attacker exploits a vulnerability inside the container, the application process has fewer privileges than a process running as root. In this lab, the baseline NGINX container runs as UID 0, while the hardened container runs as UID 101 (`nginx`). This reduces unnecessary privileges and demonstrates a practical container security control.
+
+## Interpreting Scan Results
+
+A scan with zero findings does not guarantee that a container is completely secure. Results depend on the scanner version, vulnerability database, enabled checks, and scan configuration. This lab combines Trivy results with runtime identity and HTTP response checks to provide a more useful before-and-after assessment.
